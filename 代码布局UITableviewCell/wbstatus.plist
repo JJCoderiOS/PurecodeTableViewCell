@@ -3,6 +3,29 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>pic_urls</key>
+		<array>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww4.sinaimg.cn/thumbnail/820f43e8gw1ei5fdakmr0g206t0411ey.gif</string>
+			</dict>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww3.sinaimg.cn/thumbnail/820f43e8gw1ei5fde9pj2g206t041wz8.gif</string>
+			</dict>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww3.sinaimg.cn/thumbnail/820f43e8gw1ei5fdggk4gg206t0417mr.gif</string>
+			</dict>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww1.sinaimg.cn/thumbnail/820f43e8gw1ei5fdjcvlug206t0414po.gif</string>
+			</dict>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww4.sinaimg.cn/thumbnail/820f43e8gw1ei5fdnn8xpg206t041nok.gif</string>
+			</dict>
+		</array>
 		<key>text</key>
 		<string>妈妈说，女人一定要爱自己的脸，别人打你左脸，你再把右脸伸过去让他打，不然粉底不一样厚。</string>
 		<key>icon</key>
@@ -13,11 +36,32 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>pic_urls</key>
+		<array>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww4.sinaimg.cn/thumbnail/820f43e8gw1ei5fdakmr0g206t0411ey.gif</string>
+			</dict>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww3.sinaimg.cn/thumbnail/820f43e8gw1ei5fde9pj2g206t041wz8.gif</string>
+			</dict>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww3.sinaimg.cn/thumbnail/820f43e8gw1ei5fdggk4gg206t0417mr.gif</string>
+			</dict>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww1.sinaimg.cn/thumbnail/820f43e8gw1ei5fdjcvlug206t0414po.gif</string>
+			</dict>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww4.sinaimg.cn/thumbnail/820f43e8gw1ei5fdnn8xpg206t041nok.gif</string>
+			</dict>
+		</array>
 		<key>text</key>
 		<string>奥利奥原味</string>
 		<key>icon</key>
-		<string>1.png</string>
-		<key>picture</key>
 		<string>1.png</string>
 		<key>name</key>
 		<string>内涵段子</string>
@@ -25,6 +69,13 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>pic_urls</key>
+		<array>
+			<dict>
+				<key>thumbnail_pic</key>
+				<string>http://ww1.sinaimg.cn/thumbnail/7c3ca0c7jw1ei5fe9bbpbg20b40b4wlb.gif</string>
+			</dict>
+		</array>
 		<key>text</key>
 		<string>历经磨难，青蛙王子终于跳上餐桌，希望公主能给他一个吻。公主一见到他，满心欢喜，吧唧着嘴说：「哇塞，好肥的田鸡啊！」</string>
 		<key>icon</key>
@@ -39,8 +90,6 @@
 		<string>号外号外:大师兄下凡不慎，被数人围观</string>
 		<key>icon</key>
 		<string>1.png</string>
-		<key>picture</key>
-		<string>1.png</string>
 		<key>name</key>
 		<string>西门抽筋</string>
 		<key>vip</key>
@@ -50,8 +99,6 @@
 		<key>text</key>
 		<string>可以不写标题吗</string>
 		<key>icon</key>
-		<string>1.png</string>
-		<key>picture</key>
 		<string>1.png</string>
 		<key>name</key>
 		<string>西门抽血</string>
@@ -73,8 +120,6 @@
 		<string>妖怪，吃俺老孙一棒！</string>
 		<key>icon</key>
 		<string>1.png</string>
-		<key>picture</key>
-		<string>1.png</string>
 		<key>name</key>
 		<string>撸你妹</string>
 		<key>vip</key>
@@ -94,8 +139,6 @@
 		<key>text</key>
 		<string>完全豁出去的广告</string>
 		<key>icon</key>
-		<string>1.png</string>
-		<key>picture</key>
 		<string>1.png</string>
 		<key>name</key>
 		<string>笑多了会怀孕</string>

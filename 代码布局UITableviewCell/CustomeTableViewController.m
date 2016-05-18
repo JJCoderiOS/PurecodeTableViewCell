@@ -10,10 +10,12 @@
 #import "WeiboCell.h"
 #import "WeiboFrame.h"
 #import "WeiboStatus.h"
+#import "MJExtension.h"
+#import "HMHomeStatusesResult.h"
 
 @interface CustomeTableViewController ()
 
-@property (nonatomic, strong) NSArray *statusFrames;
+@property (nonatomic, strong) NSMutableArray *statusFrames;
 
 @end
 
@@ -26,6 +28,13 @@
   
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+
+    [WeiboStatus setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"pic_urls" : @"HMPhoto",
+                 };
+    }];
+
     
 }
 
@@ -53,13 +62,63 @@
     return wbF.cellHeight;
 }
 
+//- (void)loadMore{
+//    
+//    [HMStatusPhotosView setupObjectClassInArray:^NSDictionary *{
+//        return @{
+//                 @"pic_urls" : @"HMPhoto",
+//                 };
+//    }];
+//    
+//    [WeiboStatus setupObjectClassInArray:^NSDictionary *{
+//        return @{
+//                 @"pic_urls" : @"HMPhoto",
+//                 };
+//    }];
+//    
+//    HMHomeStatusesResult *result = [HMHomeStatusesResult objectWithKeyValues:[self getStatusFromPlistFile]];
+//    
+//    //在这里获取文件中的微博数据
+//    self.statusFrames = [self statusFramesWithStatuses:result.statuses];
+//    
+//    [self.statusFrames addObjectsFromArray:self.statusFrames];
+//    
+//    [self.tableView reloadData];
+//
+//}
+//
+///**
+// *  根据微博模型数组 转成 微博frame模型数据
+// *  @param statuses 微博模型数组
+// */
+//- (NSMutableArray *)statusFramesWithStatuses:(NSArray *)statuses
+//{
+//    NSMutableArray *frames = [NSMutableArray array];
+//    for (WeiboStatus *status in statuses) {
+//        WeiboFrame *frame = [[WeiboFrame alloc] init];
+//        // 传递微博模型数据，计算所有子控件的frame
+//        frame.status = status;
+//        [frames addObject:frame];
+//    }
+//    return frames;
+//}
+//
+//- (NSDictionary *)getStatusFromPlistFile
+//{
+//    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"wbstatus" ofType:@"plist"];
+//    NSDictionary *dicInfo = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+//    
+//    return dicInfo;
+//    
+//}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - 懒加载
-- (NSArray *)statusFrames
+- (NSMutableArray *)statusFrames
 {
     if (_statusFrames == nil) {
         NSString *fullPath = [[NSBundle mainBundle] pathForResource:@"wbstatus.plist" ofType:nil];

@@ -15,6 +15,8 @@
 @property (nonatomic, copy) NSString *icon; // 头像
 @property (nonatomic, copy) NSString *name; // 昵称
 @property (nonatomic, copy) NSString *picture; // 配图
+@property (nonatomic, strong) NSArray *pic_urls;
+
 @property (nonatomic, assign) BOOL vip;
 
 - (id)initWithDict:(NSDictionary *)dict;

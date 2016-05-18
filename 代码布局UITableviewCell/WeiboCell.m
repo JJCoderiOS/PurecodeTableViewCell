@@ -65,10 +65,12 @@
         [self.contentView addSubview:introLabel];
         
         //配图
-        UIImageView *pictureView = [[UIImageView alloc] init];
-        self.pictureView = pictureView;
-        [self.contentView addSubview:pictureView];
-        
+//        UIImageView *pictureView = [[UIImageView alloc] init];
+//        self.pictureView = pictureView;
+//        [self.contentView addSubview:pictureView];
+        HMStatusPhotosView *photosView = [[HMStatusPhotosView alloc] init];
+        [self addSubview:photosView];
+        self.photosView = photosView;
         
     }
     
@@ -108,13 +110,14 @@
     self.introLabel.text = status.text;
     
     //配图
-    if(status.picture){
-        self.pictureView.image = [UIImage imageNamed:status.picture];
-        self.pictureView.hidden = NO;
-    }else{
-        self.pictureView.hidden = YES;
-    }
-    
+//    if(status.picture){
+//        self.pictureView.image = [UIImage imageNamed:status.picture];
+//        self.pictureView.hidden = NO;
+//    }else{
+//        self.pictureView.hidden = YES;
+//    }
+
+
 }
 
 - (void)setFrame{
@@ -127,9 +130,19 @@
      // 设置正文的frame
         self.introLabel.frame = self.weiboFrame.introF;
      // 设置配图的frame
-     if (self.weiboFrame.status.picture) {// 有配图
-        self.pictureView.frame = self.weiboFrame.pictrueF;
-     }
+//     if (self.weiboFrame.status.picture) {// 有配图
+//        self.pictureView.frame = self.weiboFrame.pictrueF;
+//     }
+
+    //6.配图相册
+    if (self.weiboFrame.status.pic_urls.count) {
+        self.photosView.frame = self.weiboFrame.pictrueF;
+        self.photosView.hidden = NO;
+        self.photosView.pic_urls = self.weiboFrame.status.pic_urls;
+    }else{
+        self.photosView.hidden = YES;
+    }
+
 }
 
 - (CGSize)sizewithString:(NSString *)str font:(UIFont *)font maxSize:(CGSize)maxSize{

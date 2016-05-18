@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "WeiboStatus.h"
 #import "Constants.h"
+#import "HMStatusPhotosView.h"
 
 
 @implementation WeiboFrame
@@ -29,7 +30,6 @@
     self.iconF = CGRectMake(iconViewX, iconViewY, iconViewW, iconViewH);
     
     
-    
     //设置昵称的frame
 //    昵称的x = 头像最大的X + 间隙
     CGFloat nameLabelX = CGRectGetMaxX(self.iconF) + padding;
@@ -39,16 +39,6 @@
     CGFloat nameLabelW = nameSize.width ;
     CGFloat nameLabelY = iconViewY + (iconViewH - nameLabelH) * 0.6;
     self.nameF = CGRectMake(nameLabelX, nameLabelY, nameLabelW, nameLabelH);
-//
-    
-//    CGFloat nameLabelY = iconViewY;
-//    CGFloat nameX = CGRectGetMaxX(self.iconF) + padding;
-//    // 计算文字所占据的尺寸
-//    NSDictionary *nameAttrs = @{NSFontAttributeName : NJNameFont};
-//    CGSize nameSize = [status.name sizeWithAttributes:nameAttrs];
-//    self.nameF = (CGRect){{nameX, nameLabelY}, nameSize};
-    
-    
     
     //设置VIP的frame
     CGFloat vipViewX = CGRectGetMaxX(self.nameF) + padding;
@@ -56,8 +46,6 @@
     CGFloat vipViewW = VIPW;
     CGFloat vipViewH = VIPH;
     self.vipF = CGRectMake(vipViewX, vipViewY, vipViewW, vipViewH);
-    
-    
     
     // 设置正文的frame
     CGFloat introLabelX = iconViewX;
@@ -73,18 +61,35 @@
     
     
     // 设置配图的frame
-    if (status.picture) {// 有配图
-        CGFloat pictureViewX = iconViewX;
-        CGFloat pictureViewY = CGRectGetMaxY(self.introF) + padding;
-        CGFloat pictureViewW = 100;
-        CGFloat pictureViewH = 100;
-        self.pictrueF = CGRectMake(pictureViewX, pictureViewY, pictureViewW, pictureViewH);
-        // 计算行高
+//    if (status.picture) {// 有配图
+//        CGFloat pictureViewX = iconViewX;
+//        CGFloat pictureViewY = CGRectGetMaxY(self.introF) + padding;
+//        CGFloat pictureViewW = 100;
+//        CGFloat pictureViewH = 100;
+//        self.pictrueF = CGRectMake(pictureViewX, pictureViewY, pictureViewW, pictureViewH);
+//        // 计算行高
+//        self.cellHeight = CGRectGetMaxY(self.pictrueF) + padding;
+//    }else{
+//        // 没有配图情况下的行高
+//        self.cellHeight = CGRectGetMaxY(self.introF) + padding;
+//    }
+    
+    // 4.配图相册
+    CGFloat h = 0;
+    if (status.pic_urls.count) {//有配图
+        CGFloat photosX = iconViewX;
+        CGFloat photosY = CGRectGetMaxY(self.introF) + padding;
+        
+        CGSize size = [HMStatusPhotosView sizeWithPhotosCount:status.pic_urls.count];
+        self.pictrueF = CGRectMake(photosX, photosY, size.width ,size.height);
+        
         self.cellHeight = CGRectGetMaxY(self.pictrueF) + padding;
-    }else{
-        // 没有配图情况下的行高
+        
+    }else{//没有配图
         self.cellHeight = CGRectGetMaxY(self.introF) + padding;
     }
+    
+    
     
 }
 

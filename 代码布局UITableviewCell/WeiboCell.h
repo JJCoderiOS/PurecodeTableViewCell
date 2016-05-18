@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WeiboFrame.h"
+#import "HMStatusPhotosView.h"
 
 @interface WeiboCell : UITableViewCell
 
@@ -16,5 +17,8 @@
 
 /**  接收外界传入的模型*/
 @property (nonatomic, strong) WeiboFrame *weiboFrame;
+/**配图相册*/
+@property (nonatomic,strong) HMStatusPhotosView *photosView;
+
 
 @end
