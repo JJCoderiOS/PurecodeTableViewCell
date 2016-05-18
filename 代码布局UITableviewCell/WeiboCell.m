@@ -42,7 +42,6 @@
         UIImageView *iconView = [[UIImageView alloc] init];
         [self.contentView addSubview:iconView];
         self.iconView = iconView;
-        
         //昵称
         UILabel *nameLabel = [[UILabel alloc] init];
         self.nameLabel = nameLabel;
