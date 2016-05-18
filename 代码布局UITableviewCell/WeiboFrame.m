@@ -1,0 +1,118 @@
+//
+//  WeiboFrame.m
+//  代码布局UITableviewCell
+//
+//  Created by majianjie on 16/5/16.
+//  Copyright © 2016年 ddtc. All rights reserved.
+//
+
+#import "WeiboFrame.h"
+#import <UIKit/UIKit.h>
+#import "WeiboStatus.h"
+#import "Constants.h"
+
+
+@implementation WeiboFrame
+
+- (void)setStatus:(WeiboStatus *)status{
+    
+    _status = status;
+
+    //间隙
+    CGFloat padding = 10;
+   
+    //设置头像的frame
+    CGFloat iconViewX = padding;
+    CGFloat iconViewY = padding;
+    CGFloat iconViewW = 30;
+    CGFloat iconViewH = 30;
+    self.iconF = CGRectMake(iconViewX, iconViewY, iconViewW, iconViewH);
+    
+    
+    
+    //设置昵称的frame
+//    昵称的x = 头像最大的X + 间隙
+    CGFloat nameLabelX = CGRectGetMaxX(self.iconF) + padding;
+    // 计算文字的宽高
+    CGSize nameSize = [self sizeWithString:status.name font:NJNameFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    CGFloat nameLabelH = nameSize.height;
+    CGFloat nameLabelW = nameSize.width ;
+    CGFloat nameLabelY = iconViewY + (iconViewH - nameLabelH) * 0.6;
+    self.nameF = CGRectMake(nameLabelX, nameLabelY, nameLabelW, nameLabelH);
+//
+    
+//    CGFloat nameLabelY = iconViewY;
+//    CGFloat nameX = CGRectGetMaxX(self.iconF) + padding;
+//    // 计算文字所占据的尺寸
+//    NSDictionary *nameAttrs = @{NSFontAttributeName : NJNameFont};
+//    CGSize nameSize = [status.name sizeWithAttributes:nameAttrs];
+//    self.nameF = (CGRect){{nameX, nameLabelY}, nameSize};
+    
+    
+    
+    //设置VIP的frame
+    CGFloat vipViewX = CGRectGetMaxX(self.nameF) + padding;
+    CGFloat vipViewY = nameLabelY;
+    CGFloat vipViewW = VIPW;
+    CGFloat vipViewH = VIPH;
+    self.vipF = CGRectMake(vipViewX, vipViewY, vipViewW, vipViewH);
+    
+    
+    
+    // 设置正文的frame
+    CGFloat introLabelX = iconViewX;
+    CGFloat introLabelY = CGRectGetMaxY(self.iconF) + padding;
+    
+    CGFloat maxW = HMScreenW - 2 * padding;
+    CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
+    CGSize textSize =  [self sizeWithString:status.text font:NJNameFont maxSize:maxSize];
+    CGFloat introLabelW = textSize.width;
+    CGFloat introLabelH = textSize.height;
+    
+    self.introF = CGRectMake(introLabelX, introLabelY, introLabelW, [status.text isEqualToString:@""] ? 0 : introLabelH);
+    
+    
+    // 设置配图的frame
+    if (status.picture) {// 有配图
+        CGFloat pictureViewX = iconViewX;
+        CGFloat pictureViewY = CGRectGetMaxY(self.introF) + padding;
+        CGFloat pictureViewW = 100;
+        CGFloat pictureViewH = 100;
+        self.pictrueF = CGRectMake(pictureViewX, pictureViewY, pictureViewW, pictureViewH);
+        // 计算行高
+        self.cellHeight = CGRectGetMaxY(self.pictrueF) + padding;
+    }else{
+        // 没有配图情况下的行高
+        self.cellHeight = CGRectGetMaxY(self.introF) + padding;
+    }
+    
+}
+
+- (CGSize)sizeWithString:(NSString *)str font:(UIFont *)font maxSize:(CGSize)maxSize{
+    
+     NSDictionary *attributes = @{NSFontAttributeName:font};
+     // 如果将来计算的文字的范围超出了指定的范围,返回的就是指定的范围
+     // 如果将来计算的文字的范围小于指定的范围, 返回的就是真实的范围
+     CGSize size =  [str boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    return size;
+}
+
+- (CGFloat)getWidthWithContent:(NSString *)content height:(CGFloat)height font:(CGFloat)font{
+    
+    CGRect rect = [content boundingRectWithSize:CGSizeMake(999, height)
+                                        options:NSStringDrawingUsesLineFragmentOrigin
+                                     attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]}
+                                        context:nil];
+    return rect.size.width;
+}
+
+- (CGFloat)getHeightWithContent:(NSString *)content width:(CGFloat)width font:(CGFloat)font{
+    
+    CGRect rect = [content boundingRectWithSize:CGSizeMake(width, 999)
+                                        options:NSStringDrawingUsesLineFragmentOrigin
+                                     attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]}
+                                        context:nil];
+    return rect.size.height;
+}
+
+@end
