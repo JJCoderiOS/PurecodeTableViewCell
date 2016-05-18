@@ -9,12 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface HMHomeStatusesResult : NSObject
-/** 微博数组（装着HMStatus模型） */
+/** 微博数组（装着WeiboStatus模型） */
 @property (nonatomic, strong) NSArray *statuses;
-
-/** 近期的微博总数 */
-@property (nonatomic, assign) int total_number;
-
-//- (NSDictionary *)objectClassInArray;
 
 @end

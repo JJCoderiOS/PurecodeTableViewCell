@@ -11,8 +11,4 @@
 #import "WeiboStatus.h"
 
 @implementation HMHomeStatusesResult
-//- (NSDictionary *)objectClassInArray
-//{
-//    return @{@"statuses" : [HMStatus class]};
-//}
 @end

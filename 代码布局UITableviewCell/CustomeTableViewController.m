@@ -12,6 +12,7 @@
 #import "WeiboStatus.h"
 #import "MJExtension.h"
 #import "HMHomeStatusesResult.h"
+#import "HMStatusPhotoView.h"
 
 @interface CustomeTableViewController ()
 
@@ -28,15 +29,10 @@
   
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-
-    [WeiboStatus setupObjectClassInArray:^NSDictionary *{
-        return @{
-                 @"pic_urls" : @"HMPhoto",
-                 };
-    }];
-
-    
+    [self loadMoreData];
 }
+
+
 
 #pragma mark - Table view data source
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,56 +58,6 @@
     return wbF.cellHeight;
 }
 
-//- (void)loadMore{
-//    
-//    [HMStatusPhotosView setupObjectClassInArray:^NSDictionary *{
-//        return @{
-//                 @"pic_urls" : @"HMPhoto",
-//                 };
-//    }];
-//    
-//    [WeiboStatus setupObjectClassInArray:^NSDictionary *{
-//        return @{
-//                 @"pic_urls" : @"HMPhoto",
-//                 };
-//    }];
-//    
-//    HMHomeStatusesResult *result = [HMHomeStatusesResult objectWithKeyValues:[self getStatusFromPlistFile]];
-//    
-//    //在这里获取文件中的微博数据
-//    self.statusFrames = [self statusFramesWithStatuses:result.statuses];
-//    
-//    [self.statusFrames addObjectsFromArray:self.statusFrames];
-//    
-//    [self.tableView reloadData];
-//
-//}
-//
-///**
-// *  根据微博模型数组 转成 微博frame模型数据
-// *  @param statuses 微博模型数组
-// */
-//- (NSMutableArray *)statusFramesWithStatuses:(NSArray *)statuses
-//{
-//    NSMutableArray *frames = [NSMutableArray array];
-//    for (WeiboStatus *status in statuses) {
-//        WeiboFrame *frame = [[WeiboFrame alloc] init];
-//        // 传递微博模型数据，计算所有子控件的frame
-//        frame.status = status;
-//        [frames addObject:frame];
-//    }
-//    return frames;
-//}
-//
-//- (NSDictionary *)getStatusFromPlistFile
-//{
-//    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"wbstatus" ofType:@"plist"];
-//    NSDictionary *dicInfo = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-//    
-//    return dicInfo;
-//    
-//}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -121,26 +67,64 @@
 - (NSMutableArray *)statusFrames
 {
     if (_statusFrames == nil) {
+        
+        [HMStatusPhotosView mj_setupObjectClassInArray:^NSDictionary *{
+            return @{
+                     @"pic_urls" : @"HMPhoto",
+                     };
+        }];
+        [WeiboStatus mj_setupObjectClassInArray:^NSDictionary *{
+            return @{
+                     @"pic_urls" : @"HMPhoto",
+                     };
+        }];
+        
+    }
+    
+/*
         NSString *fullPath = [[NSBundle mainBundle] pathForResource:@"wbstatus.plist" ofType:nil];
         NSArray *dictArray = [NSArray arrayWithContentsOfFile:fullPath];
         NSMutableArray *models = [NSMutableArray arrayWithCapacity:dictArray.count];
+        
+        
         for (NSDictionary *dict in dictArray) {
             // 创建模型
             WeiboStatus *status = [WeiboStatus weiboWithDict:dict];
             // 根据模型数据创建frame模型
             WeiboFrame *wbF = [[WeiboFrame alloc] init];
             wbF.status = status;
-            
             [models addObject:wbF];
         }
-        
         self.statusFrames = [models copy];
-        
     }
-    
+ */
     return _statusFrames;
+}
+
+- (void)loadMoreData
+{
+    NSArray *dicArr = [self getStatusFromPlistFile];
+    NSMutableArray *models = [NSMutableArray arrayWithCapacity:dicArr.count];
+
+    for (NSDictionary *dict in dicArr) {
+        // 创建模型
+        WeiboStatus *result = [WeiboStatus mj_objectWithKeyValues:dict];
+        // 根据模型数据创建frame模型
+        WeiboFrame *wbF = [[WeiboFrame alloc] init];
+        wbF.status = result;
+        [models addObject:wbF];
+    }
+    self.statusFrames = [models copy];
+
+    [self.tableView reloadData];
     
 }
 
+- (NSArray *)getStatusFromPlistFile
+{
+    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"wbstatus" ofType:@"plist"];
+    NSArray *dictArray = [NSArray arrayWithContentsOfFile:plistPath];
+    return dictArray;
+}
 
 @end

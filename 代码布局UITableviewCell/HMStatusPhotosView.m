@@ -43,8 +43,7 @@
 /**
  *  监听图片的点击
  */
-- (void)tapPhoto:(UITapGestureRecognizer *)recognizer
-{
+- (void)tapPhoto:(UITapGestureRecognizer *)recognizer{
     // 1.创建图片浏览器
     MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
     
@@ -69,7 +68,6 @@
     // 3.显示浏览器
     [browser show];
 }
-
 
 - (void)setPic_urls:(NSArray *)pic_urls
 {

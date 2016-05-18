@@ -45,12 +45,11 @@
 {
     _photo =photo;
 
-//    [self sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"tab_icon_wo_hl"] completed:nil];
+    [self sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"tab_icon_wo_hl"] completed:nil];
     
-    
-    // 2.控制gif图标的显示
-//    NSString *extension = photo.thumbnail_pic.pathExtension.lowercaseString;
-//    self.gifView.hidden = ![extension isEqualToString:@"gif"];
+//     2.控制gif图标的显示
+    NSString *extension = photo.thumbnail_pic.pathExtension.lowercaseString;
+    self.gifView.hidden = ![extension isEqualToString:@"gif"];
 }
 
 - (void)layoutSubviews
