@@ -25,6 +25,7 @@
     
     if (self == [super initWithFrame:frame]) {
         
+        self.backgroundColor = [UIColor groupTableViewBackgroundColor];//Color(153, 153, 153, 0.1);
         //添加UIScrollView 和page
         self.scrollView = [[UIScrollView alloc] init];
         self.scrollView.showsHorizontalScrollIndicator = NO;

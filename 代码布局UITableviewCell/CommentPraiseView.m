@@ -27,7 +27,7 @@
 {
     if (self == [super initWithFrame:frame]) {
         
-        self.backgroundColor = [UIColor clearColor];//Color(30, 32, 40,1);
+        self.backgroundColor = [UIColor clearColor];
         self.layer.cornerRadius = 5;
         
         [self setUpBtn];
@@ -44,15 +44,15 @@
     UIButton *approvBtn = [[UIButton alloc] init];
     self.approvBtn = approvBtn;
     [self.approvBtn setTitle:@"赞" forState:UIControlStateNormal];
-    self.approvBtn.backgroundColor = Color(153, 153, 153, 0.2);
+    [self.approvBtn setTitleColor:[UIColor lightGrayColor]forState:UIControlStateNormal];
+    self.approvBtn.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self addSubview:approvBtn];
     
      /*添加评论按钮*/
     UIButton *commentBtn = [[UIButton alloc] init];
     self.commentBtn = commentBtn;
-    
-    self.commentBtn.backgroundColor = Color(153, 153, 153, 0.5);
-
+    [self.commentBtn setTitleColor:[UIColor lightGrayColor]forState:UIControlStateNormal];
+    self.commentBtn.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.commentBtn setTitle:@"评论" forState:UIControlStateNormal];
     [self addSubview:commentBtn];
     
