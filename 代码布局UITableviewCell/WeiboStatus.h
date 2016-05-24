@@ -21,6 +21,9 @@
 /** 角色*/
 @property (nonatomic,strong)NSString *role;
 
+/** 时间*/
+@property (nonatomic,strong)NSString *time;
+
 
 - (id)initWithDict:(NSDictionary *)dict;
 + (id)weiboWithDict:(NSDictionary *)dict;

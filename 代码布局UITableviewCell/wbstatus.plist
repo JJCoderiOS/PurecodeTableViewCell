@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>time</key>
+		<string>1分钟前</string>
 		<key>role</key>
 		<string>丁丁停车</string>
 		<key>pic_urls</key>
@@ -38,6 +40,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>20天前</string>
 		<key>role</key>
 		<string>丁丁</string>
 		<key>pic_urls</key>
@@ -73,6 +77,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>30分钟前</string>
 		<key>role</key>
 		<string>丁小包</string>
 		<key>pic_urls</key>
@@ -92,6 +98,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>刚刚</string>
 		<key>role</key>
 		<string>丁丁客服</string>
 		<key>text</key>
@@ -104,6 +112,8 @@
 		<integer>0</integer>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>一个月前</string>
 		<key>role</key>
 		<string>MJJ</string>
 		<key>text</key>
@@ -116,6 +126,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>一年前</string>
 		<key>role</key>
 		<string>JJCoder</string>
 		<key>text</key>
@@ -128,6 +140,8 @@
 		<integer>0</integer>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>5分钟前</string>
 		<key>role</key>
 		<string>游客</string>
 		<key>text</key>
@@ -140,6 +154,8 @@
 		<integer>0</integer>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>5分钟前</string>
 		<key>role</key>
 		<string>犯罪嫌疑人</string>
 		<key>text</key>
@@ -152,6 +168,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>5分钟前</string>
 		<key>role</key>
 		<string>强奸犯/抢劫犯</string>
 		<key>text</key>

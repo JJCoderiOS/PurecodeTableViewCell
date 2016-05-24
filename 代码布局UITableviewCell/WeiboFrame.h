@@ -32,6 +32,12 @@
 /** pictrueF*/
 @property (nonatomic,assign)CGRect pictrueF;
 
+/** 评论和赞的frame */
+@property (nonatomic,assign)CGRect commentPraiseF;
+
+/** 发表时间的frame */
+@property (nonatomic,assign)CGRect timeF;
+
 
 /** 行高*/
 @property (nonatomic, assign) CGFloat cellHeight;

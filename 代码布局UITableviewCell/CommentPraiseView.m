@@ -68,7 +68,6 @@
     [self setUpapproveBtnAndCommentBtn:self.approvBtn andTitle:@"赞" andX:btnX andY:btnY andW:btnW andH:btnH andImage:@"1"];
     [self.approvBtn addTarget:self action:@selector(appAct:) forControlEvents:UIControlEventTouchUpInside];
     
-    
     [self setUpapproveBtnAndCommentBtn:self.commentBtn andTitle:@"评论" andX:CGRectGetMaxX(self.approvBtn.frame) andY:btnY andW:CGRectGetWidth(self.approvBtn.frame) andH:CGRectGetHeight(self.approvBtn.frame) andImage:@"tab_icon_wo_hl"];
     [self.commentBtn addTarget:self action:@selector(commentAction:) forControlEvents:UIControlEventTouchUpInside];
     

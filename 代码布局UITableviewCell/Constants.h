@@ -10,6 +10,8 @@
 #define ddtc_Constants_h
 #define VERSION @"2.19.2"
 
+#define JJTimeFont [UIFont systemFontOfSize:12]
+
 
 #define NJNameFont [UIFont systemFontOfSize:13]
 

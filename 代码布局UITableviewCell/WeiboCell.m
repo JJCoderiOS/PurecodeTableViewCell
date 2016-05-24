@@ -28,6 +28,10 @@
 /**正文*/
 @property (nonatomic,strong)UILabel *introLabel;
 
+/** time*/
+@property (nonatomic,strong)UILabel *timeLabel;
+
+
 /** 点赞和评论的View*/
 @property (nonatomic,strong)CommentPraiseView *commentPraiseView;
 
@@ -87,6 +91,13 @@
         [self addSubview:photosView];
         self.photosView = photosView;
         
+        //时间
+        UILabel *timeLabel = [[UILabel alloc]init];
+        self.timeLabel = timeLabel;
+        self.timeLabel.font = JJTimeFont;
+        self.timeLabel.textColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:self.timeLabel];
+        
         
         //点赞和评论的View
         CommentPraiseView *commentPraise = [[CommentPraiseView alloc] init];
@@ -131,6 +142,8 @@
     self.roleView.text = status.role;
     //内容
     self.introLabel.text = status.text;
+    //时间
+    self.timeLabel.text = status.time;
     
 }
 
@@ -141,7 +154,6 @@
          self.nameLabel.frame = self.weiboFrame.nameF;
      // 设置vip的frame
         self.vipView.frame = self.weiboFrame.vipF;
-    
     
     //设置角色的frame
     self.roleView.frame = self.weiboFrame.roleF;
@@ -158,6 +170,10 @@
     }else{
         self.photosView.hidden = YES;
     }
+    
+    self.timeLabel.frame = self.weiboFrame.timeF;
+    
+    self.commentPraiseView.frame = self.weiboFrame.commentPraiseF;
 
 }
 

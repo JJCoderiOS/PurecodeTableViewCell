@@ -70,23 +70,7 @@
     
     self.introF = CGRectMake(introLabelX, introLabelY, introLabelW, [status.text isEqualToString:@""] ? 0 : introLabelH);
     
-    
-    // 设置配图的frame
-//    if (status.picture) {// 有配图
-//        CGFloat pictureViewX = iconViewX;
-//        CGFloat pictureViewY = CGRectGetMaxY(self.introF) + padding;
-//        CGFloat pictureViewW = 100;
-//        CGFloat pictureViewH = 100;
-//        self.pictrueF = CGRectMake(pictureViewX, pictureViewY, pictureViewW, pictureViewH);
-//        // 计算行高
-//        self.cellHeight = CGRectGetMaxY(self.pictrueF) + padding;
-//    }else{
-//        // 没有配图情况下的行高
-//        self.cellHeight = CGRectGetMaxY(self.introF) + padding;
-//    }
-    
     // 4.配图相册
-    CGFloat h = 0;
     if (status.pic_urls.count) {//有配图
         CGFloat photosX = iconViewX;
         CGFloat photosY = CGRectGetMaxY(self.introF) + padding;
@@ -100,7 +84,13 @@
         self.cellHeight = CGRectGetMaxY(self.introF) + padding;
     }
     
+    // 5.时间
+    CGSize timeSize = [self sizeWithString:status.time font:JJTimeFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    self.timeF = CGRectMake(padding, self.cellHeight, timeSize.width, timeSize.height);
     
+    // 6 赞和评论
+    self.commentPraiseF = CGRectMake(HMScreenW - padding - 120, self.cellHeight, 120, 20);
+    self.cellHeight = CGRectGetMaxY(self.commentPraiseF) + padding;
     
 }
 
