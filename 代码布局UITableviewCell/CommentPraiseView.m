@@ -4,6 +4,9 @@
 #import "Constants.h"
 #import "UIView+Extension.h"
 
+#define BtnW  self.frame.size.width / 2
+#define BtnH  self.frame.size.height
+
 @interface CommentPraiseView()
 {
     int i;
@@ -24,7 +27,7 @@
 {
     if (self == [super initWithFrame:frame]) {
         
-        self.backgroundColor = Color(30, 32, 40,1);
+        self.backgroundColor = [UIColor clearColor];//Color(30, 32, 40,1);
         self.layer.cornerRadius = 5;
         
         [self setUpBtn];
@@ -40,17 +43,17 @@
     /*添加赞按钮*/
     UIButton *approvBtn = [[UIButton alloc] init];
     self.approvBtn = approvBtn;
+    [self.approvBtn setTitle:@"赞" forState:UIControlStateNormal];
+    self.approvBtn.backgroundColor = Color(153, 153, 153, 0.2);
     [self addSubview:approvBtn];
     
-    /*赞 和 评论 中间的 竖线*/
-    UIView *lineView = [[UIView alloc] init];
-    [self addSubview:lineView];
-    self.lineView = lineView;
-    
-    
-    /*添加评论按钮*/
+     /*添加评论按钮*/
     UIButton *commentBtn = [[UIButton alloc] init];
     self.commentBtn = commentBtn;
+    
+    self.commentBtn.backgroundColor = Color(153, 153, 153, 0.5);
+
+    [self.commentBtn setTitle:@"评论" forState:UIControlStateNormal];
     [self addSubview:commentBtn];
     
     
@@ -60,32 +63,18 @@
 {
     [super layoutSubviews];
     
-    CGFloat btnX = 0;
-    CGFloat btnY = 10;
-    CGFloat btnW = self.width / 2;
-    CGFloat btnH = self.height / 3 * 1.5;
+     self.approvBtn.frame = CGRectMake(0, 0, BtnW - 1,BtnH);
     
-    [self setUpapproveBtnAndCommentBtn:self.approvBtn andTitle:@"赞" andX:btnX andY:btnY andW:btnW andH:btnH andImage:@"1"];
+    
     [self.approvBtn addTarget:self action:@selector(appAct:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self setUpapproveBtnAndCommentBtn:self.commentBtn andTitle:@"评论" andX:CGRectGetMaxX(self.approvBtn.frame) andY:btnY andW:CGRectGetWidth(self.approvBtn.frame) andH:CGRectGetHeight(self.approvBtn.frame) andImage:@"tab_icon_wo_hl"];
+    self.commentBtn.frame = CGRectMake(CGRectGetMaxX(self.approvBtn.frame) + 1, 0, BtnW - 2,BtnH);
+
+    
     [self.commentBtn addTarget:self action:@selector(commentAction:) forControlEvents:UIControlEventTouchUpInside];
     
     
 }
-
-//提取共有的代码
-- (void) setUpapproveBtnAndCommentBtn:(UIButton *)btn andTitle:(NSString *)title andX:(CGFloat)x andY:(CGFloat)y andW:(CGFloat)w andH:(CGFloat)h andImage:(NSString *)name
-{
-    
-    btn.frame = CGRectMake(x,y,w,h);
-    [btn setTitle:title forState:UIControlStateNormal];
-    btn.titleLabel.textColor = White;
-    btn.titleLabel.font = Small_Font;
-    [btn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
-    [btn setImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
-}
-
 
 - (void)appAct:(UIButton *)sender{
     

@@ -59,7 +59,7 @@
         UILabel *nameLabel = [[UILabel alloc] init];
         self.nameLabel = nameLabel;
         self.nameLabel.font = NJNameFont;
-        self.nameLabel.backgroundColor = [UIColor lightGrayColor];
+//        self.nameLabel.backgroundColor = [UIColor lightGrayColor];
         [self.contentView addSubview:nameLabel];
 
         
@@ -68,15 +68,14 @@
         [self.contentView addSubview:vipView];
         self.vipView = vipView;
         
-        
+        //角色
         UILabel *roleView = [[UILabel alloc] init];
         self.roleView = roleView;
         self.roleView.font = NJNameFont;
-        self.nameLabel.backgroundColor = [UIColor lightGrayColor];
+        self.roleView.textColor = [UIColor lightGrayColor];
+//        self.nameLabel.backgroundColor = [UIColor lightGrayColor];
         [self.contentView addSubview:self.roleView];
 
-        
-        
         //正文
         UILabel *introLabel =[[UILabel alloc] init];
         self.introLabel = introLabel;
@@ -157,7 +156,7 @@
     
     //设置角色的frame
     self.roleView.frame = self.weiboFrame.roleF;
-    self.roleView.backgroundColor = [UIColor lightGrayColor];
+//    self.roleView.backgroundColor = [UIColor lightGrayColor];
     
      // 设置正文的frame
         self.introLabel.frame = self.weiboFrame.introF;
