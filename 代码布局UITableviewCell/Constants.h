@@ -12,6 +12,10 @@
 
 
 #define NJNameFont [UIFont systemFontOfSize:13]
+
+//小
+#define Small_Font [UIFont systemFontOfSize:14]
+
 // 屏幕尺寸
 #define HMScreenW  [UIScreen mainScreen].bounds.size.width
 #define HMScreenH [UIScreen mainScreen ].bounds.size.height

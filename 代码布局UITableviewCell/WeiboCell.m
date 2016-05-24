@@ -9,6 +9,8 @@
 #import "WeiboCell.h"
 #import "WeiboStatus.h"
 #import "Constants.h"
+#import "CommentPraiseView.h"
+
 
 @interface WeiboCell()
 
@@ -25,6 +27,10 @@
 @property (nonatomic,strong)UILabel *nameLabel;
 /**正文*/
 @property (nonatomic,strong)UILabel *introLabel;
+
+/** 点赞和评论的View*/
+@property (nonatomic,strong)CommentPraiseView *commentPraiseView;
+
 
 @end
 
@@ -81,6 +87,12 @@
         [self addSubview:photosView];
         self.photosView = photosView;
         
+        
+        //点赞和评论的View
+        CommentPraiseView *commentPraise = [[CommentPraiseView alloc] init];
+        [self.contentView addSubview:commentPraise];
+        self.commentPraiseView = commentPraise;
+        
     }
     
     return self;
@@ -117,8 +129,6 @@
     
     //角色
     self.roleView.text = status.role;
-
-    
     //内容
     self.introLabel.text = status.text;
     

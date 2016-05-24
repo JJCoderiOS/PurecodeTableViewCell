@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3012B0621CF409A00002B367 /* CommentPraiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3012B0611CF409A00002B367 /* CommentPraiseView.m */; };
 		304299901CEC548E004AC373 /* HMStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3042998F1CEC548E004AC373 /* HMStatusPhotoView.m */; };
 		304299931CEC54AD004AC373 /* HMStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 304299921CEC54AD004AC373 /* HMStatusPhotosView.m */; };
 		304299C71CEC5537004AC373 /* HMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 304299C61CEC5537004AC373 /* HMPhoto.m */; };
@@ -61,6 +62,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3012B0601CF409A00002B367 /* CommentPraiseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentPraiseView.h; sourceTree = "<group>"; };
+		3012B0611CF409A00002B367 /* CommentPraiseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentPraiseView.m; sourceTree = "<group>"; };
 		3042998E1CEC548E004AC373 /* HMStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMStatusPhotoView.h; sourceTree = "<group>"; };
 		3042998F1CEC548E004AC373 /* HMStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMStatusPhotoView.m; sourceTree = "<group>"; };
 		304299911CEC54AD004AC373 /* HMStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMStatusPhotosView.h; sourceTree = "<group>"; };
@@ -329,6 +332,8 @@
 				306F0BA11CE9E00700E932FA /* WeiboStatus.h */,
 				306F0BA21CE9E00700E932FA /* WeiboStatus.m */,
 				306F0B811CE9D4D500E932FA /* Supporting Files */,
+				3012B0601CF409A00002B367 /* CommentPraiseView.h */,
+				3012B0611CF409A00002B367 /* CommentPraiseView.m */,
 			);
 			path = "代码布局UITableviewCell";
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 			files = (
 				304AB59F1CEACDA100D526A5 /* ViewController.m in Sources */,
 				30429A9C1CEC9EAF004AC373 /* MJProperty.m in Sources */,
+				3012B0621CF409A00002B367 /* CommentPraiseView.m in Sources */,
 				30429A831CEC7469004AC373 /* UIView+WebCacheOperation.m in Sources */,
 				304299C71CEC5537004AC373 /* HMPhoto.m in Sources */,
 				30429A111CEC6FCC004AC373 /* HMHomeStatusesResult.m in Sources */,
