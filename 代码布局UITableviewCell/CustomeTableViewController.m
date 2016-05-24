@@ -168,6 +168,26 @@
     return dictArray;
 }
 
+#pragma mark scrollView Delegate 开始拖拽的时候调用
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    //    关闭定时器(注意点; 定时器一旦被关闭,无法再开启)
+    [self removeTimer];
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    //    开启定时器
+    [self addTimer];
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    int page = (scrollView.contentOffset.x / scrollView.frame.size.width);//滚动的距离/一个页的宽度 = 几页
+    self.page.currentPage = page;//设置pageControl 的当前页
+    
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    NSLog(@"当前是第 %ld 页 ",(long)self.page.currentPage);
+    
+}
+
+#pragma mark 定时器(轮播图)
 - (void)nextImage{
     int page = (int)self.page.currentPage;
     if (page == self.pictures.count - 1) {
@@ -179,27 +199,6 @@
     //  滚动scrollview
     CGFloat x = page * self.scrollView.frame.size.width;
     self.scrollView.contentOffset = CGPointMake(x, 0);
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    int page = (scrollView.contentOffset.x / scrollView.frame.size.width);//滚动的距离/一个页的宽度 = 几页
-    self.page.currentPage = page;//设置pageControl 的当前页
-    
-}
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    NSLog(@"当前是第 %ld 页 ",(long)self.page.currentPage);
-    
-}
-
-// 开始拖拽的时候调用
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    //    关闭定时器(注意点; 定时器一旦被关闭,无法再开启)
-    [self removeTimer];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    //    开启定时器
-    [self addTimer];
 }
 /***  开启定时器*/
 - (void)addTimer{

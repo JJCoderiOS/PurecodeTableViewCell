@@ -11,12 +11,20 @@
 #define VERSION @"2.19.2"
 
 #define JJTimeFont [UIFont systemFontOfSize:12]
-
-
 #define NJNameFont [UIFont systemFontOfSize:13]
-
 //小
 #define Small_Font [UIFont systemFontOfSize:14]
+
+//评论和赞的宽度
+#define CommentAndPraiseW 100
+#define CommentAndPraiseH 20
+
+
+//间隙
+#define Margin 10
+
+#define IconW 30
+#define IconH IconW
 
 // 屏幕尺寸
 #define HMScreenW  [UIScreen mainScreen].bounds.size.width

@@ -75,7 +75,6 @@
 }
 
 //提取共有的代码
-
 - (void) setUpapproveBtnAndCommentBtn:(UIButton *)btn andTitle:(NSString *)title andX:(CGFloat)x andY:(CGFloat)y andW:(CGFloat)w andH:(CGFloat)h andImage:(NSString *)name
 {
     
@@ -87,7 +86,7 @@
     [btn setImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
 }
 
-/**点赞时候的动画效果*/
+
 - (void)appAct:(UIButton *)sender{
     
     NSLog(@"***************增加了一赞***************");

@@ -20,18 +20,17 @@
     _status = status;
 
     //间隙
-    CGFloat padding = 10;
+    CGFloat padding = Margin;
    
     //设置头像的frame
     CGFloat iconViewX = padding;
     CGFloat iconViewY = padding;
-    CGFloat iconViewW = 30;
-    CGFloat iconViewH = 30;
+    CGFloat iconViewW = IconW;
+    CGFloat iconViewH = IconH;
     self.iconF = CGRectMake(iconViewX, iconViewY, iconViewW, iconViewH);
     
     
-    //设置昵称的frame
-//    昵称的x = 头像最大的X + 间隙
+    //设置昵称的frame  (昵称的x = 头像最大的X + 间隙)
     CGFloat nameLabelX = CGRectGetMaxX(self.iconF) + padding;
     // 计算文字的宽高
     CGSize nameSize = [self sizeWithString:status.name font:NJNameFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
@@ -89,7 +88,7 @@
     self.timeF = CGRectMake(padding, self.cellHeight, timeSize.width, timeSize.height);
     
     // 6 赞和评论
-    self.commentPraiseF = CGRectMake(HMScreenW - padding - 120, self.cellHeight, 120, 20);
+    self.commentPraiseF = CGRectMake(HMScreenW - padding - CommentAndPraiseW, self.cellHeight, CommentAndPraiseW, CommentAndPraiseH);
     self.cellHeight = CGRectGetMaxY(self.commentPraiseF) + padding;
     
 }
@@ -103,6 +102,7 @@
     return size;
 }
 
+/*
 - (CGFloat)getWidthWithContent:(NSString *)content height:(CGFloat)height font:(CGFloat)font{
     
     CGRect rect = [content boundingRectWithSize:CGSizeMake(999, height)
@@ -120,5 +120,6 @@
                                         context:nil];
     return rect.size.height;
 }
+*/
 
 @end
