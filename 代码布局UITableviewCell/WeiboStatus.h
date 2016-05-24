@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSArray *pic_urls;
 
 @property (nonatomic, assign) BOOL vip;
+/** 角色*/
+@property (nonatomic,strong)NSString *role;
+
 
 - (id)initWithDict:(NSDictionary *)dict;
 + (id)weiboWithDict:(NSDictionary *)dict;

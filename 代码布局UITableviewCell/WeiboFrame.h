@@ -22,6 +22,10 @@
 /** vipF*/
 @property (nonatomic,assign)CGRect vipF;
 
+/** 角色的F */
+@property (nonatomic,assign)CGRect roleF;
+
+
 /** introF*/
 @property (nonatomic,assign)CGRect introF;
 

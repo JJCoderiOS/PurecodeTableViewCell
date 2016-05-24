@@ -47,6 +47,17 @@
     CGFloat vipViewH = VIPH;
     self.vipF = CGRectMake(vipViewX, vipViewY, vipViewW, vipViewH);
     
+    
+    //设置角色的frame
+    CGSize roleSize = [self sizeWithString:status.role font:NJNameFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    CGFloat roleX = HMScreenW - padding - roleSize.width;
+    CGFloat roleY = vipViewY;
+    CGFloat roleW = roleSize.width ;
+    CGFloat roleH = roleSize.height;
+    self.roleF = CGRectMake(roleX, roleY, roleW, roleH);
+    
+    
+    
     // 设置正文的frame
     CGFloat introLabelX = iconViewX;
     CGFloat introLabelY = CGRectGetMaxY(self.iconF) + padding;

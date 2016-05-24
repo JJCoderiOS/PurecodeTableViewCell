@@ -16,6 +16,9 @@
 @property (nonatomic,strong)UIImageView *iconView;
 /** vip*/
 @property (nonatomic,strong)UIImageView *vipView;
+/** 角色*/
+@property (nonatomic,strong)UILabel *roleView;
+
 /** 配图*/
 @property (nonatomic,strong)UIImageView *pictureView;
 /** 昵称*/
@@ -55,6 +58,15 @@
         [self.contentView addSubview:vipView];
         self.vipView = vipView;
         
+        
+        UILabel *roleView = [[UILabel alloc] init];
+        self.roleView = roleView;
+        self.roleView.font = NJNameFont;
+        self.nameLabel.backgroundColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:self.roleView];
+
+        
+        
         //正文
         UILabel *introLabel =[[UILabel alloc] init];
         self.introLabel = introLabel;
@@ -65,9 +77,6 @@
         [self.contentView addSubview:introLabel];
         
         //配图
-//        UIImageView *pictureView = [[UIImageView alloc] init];
-//        self.pictureView = pictureView;
-//        [self.contentView addSubview:pictureView];
         HMStatusPhotosView *photosView = [[HMStatusPhotosView alloc] init];
         [self addSubview:photosView];
         self.photosView = photosView;
@@ -106,18 +115,13 @@
         self.nameLabel.textColor = [UIColor blackColor];
     }
     
+    //角色
+    self.roleView.text = status.role;
+
+    
     //内容
     self.introLabel.text = status.text;
     
-    //配图
-//    if(status.picture){
-//        self.pictureView.image = [UIImage imageNamed:status.picture];
-//        self.pictureView.hidden = NO;
-//    }else{
-//        self.pictureView.hidden = YES;
-//    }
-
-
 }
 
 - (void)setFrame{
@@ -127,12 +131,14 @@
          self.nameLabel.frame = self.weiboFrame.nameF;
      // 设置vip的frame
         self.vipView.frame = self.weiboFrame.vipF;
+    
+    
+    //设置角色的frame
+    self.roleView.frame = self.weiboFrame.roleF;
+    self.roleView.backgroundColor = [UIColor lightGrayColor];
+    
      // 设置正文的frame
         self.introLabel.frame = self.weiboFrame.introF;
-     // 设置配图的frame
-//     if (self.weiboFrame.status.picture) {// 有配图
-//        self.pictureView.frame = self.weiboFrame.pictrueF;
-//     }
 
     //6.配图相册
     if (self.weiboFrame.status.pic_urls.count) {

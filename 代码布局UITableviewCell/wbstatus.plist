@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>role</key>
+		<string>丁丁停车</string>
 		<key>pic_urls</key>
 		<array>
 			<dict>
@@ -36,6 +38,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>role</key>
+		<string>丁丁</string>
 		<key>pic_urls</key>
 		<array>
 			<dict>
@@ -69,6 +73,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>role</key>
+		<string>丁小包</string>
 		<key>pic_urls</key>
 		<array>
 			<dict>
@@ -86,6 +92,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>role</key>
+		<string>丁丁客服</string>
 		<key>text</key>
 		<string>号外号外:大师兄下凡不慎，被数人围观</string>
 		<key>icon</key>
@@ -96,6 +104,8 @@
 		<integer>0</integer>
 	</dict>
 	<dict>
+		<key>role</key>
+		<string>MJJ</string>
 		<key>text</key>
 		<string>可以不写标题吗</string>
 		<key>icon</key>
@@ -106,6 +116,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>role</key>
+		<string>JJCoder</string>
 		<key>text</key>
 		<string>去买祭品，居然看到有纸糊的苹果手机。就问:啊哈，这里还有苹果5S啊？老祖宗会用吗？老板白了我一眼说:乔布斯都亲自下去教了，你还操什么心。我买了一个刚转身要走，老板提醒:再买个手机套吧！下面蛮潮湿的。我说好，接着老板又说再买个蓝牙耳机吧，最近下面出了新交规，开车接电话查的严。我又买个蓝牙耳机，老板继续善意提醒:最重要的还要买充电器啊！回头你祖宗找你要就不好了，光找你要是小事，让你送过去就麻烦了。我又买个充电器，然后和老板要名片。老板问:要我名片干嘛？我说烧给祖宗啊！万一出了质量问题我好让我祖宗来找你。</string>
 		<key>icon</key>
@@ -116,6 +128,8 @@
 		<integer>0</integer>
 	</dict>
 	<dict>
+		<key>role</key>
+		<string>游客</string>
 		<key>text</key>
 		<string>妖怪，吃俺老孙一棒！</string>
 		<key>icon</key>
@@ -126,6 +140,8 @@
 		<integer>0</integer>
 	</dict>
 	<dict>
+		<key>role</key>
+		<string>犯罪嫌疑人</string>
 		<key>text</key>
 		<string>怎么办啊，，，谁会修手机，我下载了个滑动解锁软件，解不开锁，，，我手机不是触屏的啊。。。。。</string>
 		<key>icon</key>
@@ -136,6 +152,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>role</key>
+		<string>强奸犯/抢劫犯</string>
 		<key>text</key>
 		<string>完全豁出去的广告</string>
 		<key>icon</key>
